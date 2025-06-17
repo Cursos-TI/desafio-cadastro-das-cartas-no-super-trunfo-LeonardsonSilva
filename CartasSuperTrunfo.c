@@ -11,12 +11,14 @@ void quebra_linha() {
 
 int main() {
     char estado_1, estado_2;       // uma letra de A a H
-    char codigo_1[4], codigo_2[4]; // A letra do estado seguida de um número de 01 a 04
-    char cidade_1[81], cidade_2[81];
+    char codigo_1[4] = "", codigo_2[4] = ""; // A letra do estado seguida de um número de 01 a 04
+    char cidade_1[81] = "", cidade_2[81] = "";
     int populacao_1 = 0, populacao_2 = 0;
     float area_1 = 0.0, area_2 = 0.0;
     float PIB_1 = 0.0, PIB_2 = 0.0;
     int qtd_pontos_turisticos_1 = 0, qtd_pontos_turisticos_2 = 0;
+    float densidade_populacional_1 = 0.0, densidade_populacional_2 = 0.0;
+    float PIB_per_capita_1 = 0.0, PIB_per_capita_2 = 0.0;
 
     printf("Estado 01 (uma letra de A a H): ");
     scanf(" %c", &estado_1);
@@ -33,6 +35,8 @@ int main() {
     printf("Quantidade de Pontos Turísticos 01: ");
     scanf("%d", &qtd_pontos_turisticos_1);
 
+    quebra_linha();
+
     printf("Estado 02 (uma letra de A a H): ");
     scanf(" %c", &estado_2);
     printf("Dígito identificador da Carta 02 (um número de 01 a 04):  ");
@@ -47,6 +51,12 @@ int main() {
     scanf("%f", &PIB_2);
     printf("Quantidade de Pontos Turísticos 02: ");
     scanf("%d", &qtd_pontos_turisticos_2);
+
+    densidade_populacional_1 = populacao_1 / area_1;
+    PIB_per_capita_1 = PIB_1 * 1000000000 / populacao_1;
+
+    densidade_populacional_2 = populacao_2 / area_2;
+    PIB_per_capita_2 = PIB_2 * 1000000000 / populacao_2;
 
     quebra_linha();
     quebra_linha();
@@ -66,6 +76,10 @@ int main() {
     printf("PIB: %.2f bilhões de reais", PIB_1);
     quebra_linha();
     printf("Número e pontos turísticos: %d", qtd_pontos_turisticos_1);
+    quebra_linha();
+    printf("Densidade Populacional: %.2f hab/km2", densidade_populacional_1);
+    quebra_linha();
+    printf("PIB per Capita: %.2f reais", PIB_per_capita_1);
 
     quebra_linha();
     quebra_linha();
@@ -85,6 +99,10 @@ int main() {
     printf("PIB: %.2f bilhões de reais", PIB_2);
     quebra_linha();
     printf("Número e pontos turísticos: %d", qtd_pontos_turisticos_2);
+    quebra_linha();
+    printf("Densidade Populacional: %.2f hab/km2", densidade_populacional_2);
+    quebra_linha();
+    printf("PIB per Capita: %.2f reais", PIB_per_capita_2);
 
     quebra_linha();
     quebra_linha();
